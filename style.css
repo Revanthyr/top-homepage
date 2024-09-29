@@ -6,20 +6,31 @@
   font-family: "playfair";
   src: url(./assets/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
 }
+:root {
+  --dark-text-color: black;
+  --light-text-color: white;
+  --svg-fill-color: white;
+  --main-background-color: white;
 
+  --secondary-background-color: #635bff;
+  --shadow-color: 0deg 0% 71%;
+  --shadow-elevation-medium: 0.5px 0.5px 0.9px hsl(var(--shadow-color) / 0.19),
+    1.6px 1.6px 2.8px -0.6px hsl(var(--shadow-color) / 0.23),
+    3.6px 3.6px 6.3px -1.2px hsl(var(--shadow-color) / 0.27),
+    8.2px 8.2px 14.4px -1.7px hsl(var(--shadow-color) / 0.31);
+}
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: rgb(1, 1, 5);
+  background-color: var(--main-background-color);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 p {
-  color: white;
   font-family: "roboto";
 }
 .about-content {
@@ -28,13 +39,12 @@ p {
   transform: skewY(11deg);
   justify-content: center;
   align-items: center;
-  padding-left: 200px;
-  padding-right: 200px;
+
   position: relative;
   top: 170px;
 }
 .about-text-container {
-  background-color: white;
+  background-color: var(--main-background-color);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -43,23 +53,30 @@ p {
   padding-left: 20px;
   padding-right: 50px;
   padding-bottom: 30px;
-  box-shadow: 1px 0px 5px 0px #2c2b2b;
+  /* box-shadow: 1px 0px 5px 0px #2c2b2b; */
+  box-shadow: var(--shadow-elevation-medium);
+  max-width: 950px;
 }
 .about-content h1 {
-  position: relative;
-  left: 27%;
-  top: 40%;
+  position: absolute;
+  left: 23%;
+  top: 83%;
   z-index: 22;
   font-family: "playfair";
   font-size: 4rem;
-  color: white;
+  color: var(--light-text-color);
 }
 .about img {
-  height: 500px;
-  max-width: 40%;
+  --shadow-color: 0deg 0% 31%;
+  --shadow-elevation-medium: 0.5px 0.5px 0.9px hsl(var(--shadow-color) / 0.19),
+    1.6px 1.6px 2.8px -0.6px hsl(var(--shadow-color) / 0.23),
+    3.6px 3.6px 6.3px -1.2px hsl(var(--shadow-color) / 0.27),
+    8.2px 8.2px 14.4px -1.7px hsl(var(--shadow-color) / 0.31);
+  max-width: 100%;
   flex-grow: 1;
   z-index: 1;
-  box-shadow: 1px 0px 5px 0px #2c2b2b;
+  box-shadow: var(--shadow-elevation-medium);
+  min-width: 550px;
 }
 .about {
   background-image: linear-gradient(45deg, #0b0194, #ff0099);
@@ -70,7 +87,7 @@ p {
   min-height: 800px;
   display: flex;
   justify-content: end;
-  align-items: end;
+  align-items: center;
   flex-direction: column;
 }
 main {
@@ -81,7 +98,7 @@ main {
   font-size: 4rem;
 }
 .about-text-container p {
-  color: rgb(71, 70, 70);
+  color: var(--dark-text-color);
   font-family: "roboto";
   font-size: 1.5rem;
   margin-bottom: 30px;
@@ -95,4 +112,211 @@ main {
 .about-text-container .icons-container svg {
   min-height: 25px;
   flex-basis: 60px;
+}
+.ipad-layout {
+  display: none;
+}
+
+picture {
+  position: relative;
+}
+/* ------------MAIN SECTION------------------ */
+.work {
+  min-height: 1200px;
+  padding-right: 80px;
+  padding-left: 80px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-auto-rows: 500px;
+  grid-template-rows: repeat(2, 500px);
+  gap: 70px;
+  min-height: 900px;
+}
+.project-card {
+  box-shadow: var(--shadow-elevation-medium);
+  background-color: var(--main-background-color);
+}
+.svg-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.project-placeholder {
+  background-color: red;
+  height: 65%;
+}
+.work h2 {
+  font-size: 3rem;
+  padding-bottom: 10px;
+}
+.text-container {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.text-container h3 {
+  font-family: "playfair";
+  font-size: 1.5rem;
+  color: var(--dark-text-color);
+}
+.text-container p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+.title-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.title-row svg {
+  min-height: 25px;
+  flex-basis: 50px;
+  fill: var(--svg-fill-color);
+}
+/* -------FOOTER SECTION------------ */
+footer {
+  background-color: var(--secondary-background-color);
+  display: flex;
+  flex-direction: row;
+
+  padding: 80px;
+  justify-content: space-around;
+}
+footer h2 {
+  color: var(--light-text-color);
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+footer p {
+  font-size: 1.5rem;
+  color: var(--light-text-color);
+}
+.contact-info {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  align-items: center;
+  gap: 10px;
+}
+footer svg {
+  min-height: 25px;
+  flex-basis: 50px;
+  fill: white;
+}
+.socials {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-top: 40px;
+}
+.socials svg {
+  fill: black;
+}
+@media (max-width: 1070px) {
+  :root {
+    font-size: small;
+  }
+  .about-content {
+    display: none;
+  }
+  .ipad-layout picture {
+    float: inline-start;
+    bottom: 0px;
+    position: static;
+    margin-left: -3rem;
+    margin-top: -16rem;
+    margin-right: 2rem;
+  }
+
+  .ipad-layout {
+    display: block;
+    max-width: 740px;
+    transform: skewY(11deg);
+    background-color: var(--main-background-color);
+    position: relative;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    bottom: -30px;
+  }
+  .ipad-layout p {
+    color: var(--dark-text-color);
+    font-family: "roboto";
+    font-size: 1.5rem;
+  }
+  .ipad-layout h2 {
+    font-family: "playfair";
+    font-size: 4rem;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  .ipad-layout h1 {
+    position: absolute;
+    left: 53%;
+    font-size: 4rem;
+    top: -33%;
+  }
+  .ipad-layout img {
+    min-width: 200px;
+  }
+  .project-card p {
+    font-size: 1.5rem;
+  }
+  footer img {
+    min-width: 400px;
+  }
+  footer {
+    padding: 10px;
+  }
+}
+@media (max-width: 610px) {
+  :root {
+    font-size: medium;
+  }
+  .project-card p {
+    font-size: 1.1rem;
+  }
+  .about h1 {
+    font-size: 12vw;
+    left: 15%;
+  }
+  .ipad-layout {
+    display: none;
+  }
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 115px;
+  }
+  .about-text-container {
+    align-items: center;
+  }
+  .about-text-container h2 {
+    text-align: center;
+  }
+  .about-text-container .icons-container {
+    width: 200px;
+  }
+  .about img {
+    min-width: 320px;
+  }
+  .work {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+  }
+}
+@media (max-width: 410px) {
+  .about h1 {
+    font-size: 3rem;
+  }
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
 }
